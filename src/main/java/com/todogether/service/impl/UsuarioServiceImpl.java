@@ -1,5 +1,7 @@
 package com.todogether.service.impl;
 
-public class UsuarioServiceImpl {
+import com.todogether.service.IUsuarioService;
+
+public class UsuarioServiceImpl implements IUsuarioService {
 
 }
