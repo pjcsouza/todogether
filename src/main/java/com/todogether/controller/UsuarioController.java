@@ -33,4 +33,9 @@ public class UsuarioController {
 		return service.create(form);
 	}
 
+	public Usuario efetuarLogin(String email, String senha) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

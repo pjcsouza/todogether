@@ -21,4 +21,14 @@ public class UsuarioForm {
 	@Email(message = "O email '${validatedValue}' é inválido.")
 	private String email;
 
+	public Object getNome() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getEmail() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
