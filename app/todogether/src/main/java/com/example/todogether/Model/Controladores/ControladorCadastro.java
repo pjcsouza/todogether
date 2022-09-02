@@ -16,7 +16,10 @@ public class ControladorCadastro {
     private ISubsistemaComunicacaoAPILogin subsistemaComunicacaoAPILogin;
 
     public Boolean cadastrarUsuario(String email) {
-        if(cadastroUsuario.consultarUsuarioPorEmail(email) != null) return false;
+        try {
+            cadastroUsuario.consultarUsuarioPorEmail(email);
+            return false;
+        } catch (Exception e) {}
 
         String nome = subsistemaComunicacaoAPILogin.cadastrarUsuario(email);
         if(nome == null || nome.isEmpty()) { return false; }
