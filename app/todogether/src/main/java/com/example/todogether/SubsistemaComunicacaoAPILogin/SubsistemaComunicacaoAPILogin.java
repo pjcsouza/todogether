@@ -4,5 +4,5 @@ import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserServ
 
 public abstract class SubsistemaComunicacaoAPILogin extends DefaultOAuth2UserService implements ISubsistemaComunicacaoAPILogin  {
     public abstract IUsuarioAPILogin cadastrarUsuario();
-    public abstract String verificarCredenciais();
+    public abstract String consultarEmail();
 }

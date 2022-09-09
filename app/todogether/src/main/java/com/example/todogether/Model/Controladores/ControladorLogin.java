@@ -15,8 +15,8 @@ public class ControladorLogin {
     @Autowired
     private ISubsistemaComunicacaoAPILogin subsistemaComunicacaoAPILogin;
 
-    public Boolean requestLogin() {
-        String email = subsistemaComunicacaoAPILogin.verificarCredenciais();
+    public Boolean requisitarLogin() {
+        String email = subsistemaComunicacaoAPILogin.consultarEmail();
         if(email == null) return null;
 
         Usuario usuario = cadastroUsuario.consultarUsuarioPorEmail(email);

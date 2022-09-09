@@ -24,7 +24,7 @@ public class Fachada {
     }
 
     public Boolean requestLogin() {
-        return controladorLogin.requestLogin();
+        return controladorLogin.requisitarLogin();
     }
 
     public void criarLista(String nome, Long idUsuario) {

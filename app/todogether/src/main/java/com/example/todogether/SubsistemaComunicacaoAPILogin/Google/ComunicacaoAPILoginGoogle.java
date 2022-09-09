@@ -24,7 +24,7 @@ public class ComunicacaoAPILoginGoogle extends SubsistemaComunicacaoAPILogin {
     }
 
     @Override
-    public String verificarCredenciais() {
+    public String consultarEmail() {
         return usuarioGoogle.getEmail();
     }
 }
