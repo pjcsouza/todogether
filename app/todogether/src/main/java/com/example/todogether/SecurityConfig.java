@@ -1,6 +1,6 @@
 package com.example.todogether;
 
-import com.example.todogether.SubsistemaOAuth2.ServicoUsuarioOAuth2;
+import com.example.todogether.SubsistemaComunicacaoAPILogin.SubsistemaComunicacaoAPILogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +11,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Autowired
-    private ServicoUsuarioOAuth2 servicoUsuarioOAuth2;
+    private SubsistemaComunicacaoAPILogin subsistemaComunicacaoAPILogin;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -22,7 +22,7 @@ public class SecurityConfig {
                 .and()
                 .oauth2Login()
                     .userInfoEndpoint()
-                    .userService(servicoUsuarioOAuth2);
+                    .userService(subsistemaComunicacaoAPILogin);
 
         return http.build();
     }

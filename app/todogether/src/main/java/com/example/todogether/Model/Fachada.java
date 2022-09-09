@@ -19,12 +19,12 @@ public class Fachada {
     @Autowired
     private ControladorLista controladorLista;
 
-    public Boolean cadastrarUsuario(String email) {
-        return controladorCadastro.cadastrarUsuario(email);
+    public Boolean cadastrarUsuario() {
+        return controladorCadastro.cadastrarUsuario();
     }
 
-    public Boolean requestLogin(String email, String senha) {
-        return controladorLogin.requestLogin(email, senha);
+    public Boolean requestLogin() {
+        return controladorLogin.requestLogin();
     }
 
     public void criarLista(String nome, Long idUsuario) {

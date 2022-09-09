@@ -13,14 +13,9 @@ public class TelaLoginControle {
     @Autowired
     private Fachada fachada;
 
-    @GetMapping("/mostrarTelaLogin")
-    public String mostrarTelaCadastro() {
-        return "tela_login";
-    }
-
-    @RequestMapping("/requestLogin")
-    public String requestLogin(@RequestParam String email, @RequestParam String senha) {
-        Boolean sucesso = fachada.requestLogin(email, senha);
+    @GetMapping("/requestLogin")
+    public String requestLogin() {
+        Boolean sucesso = fachada.requestLogin();
 
         if(!sucesso) return "tela_login";
         return  "redirect:/mostrarListas";

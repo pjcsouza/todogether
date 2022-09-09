@@ -1,20 +1,29 @@
-package com.example.todogether.SubsistemaOAuth2;
+package com.example.todogether.SubsistemaComunicacaoAPILogin.Google;
 
+
+import com.example.todogether.SubsistemaComunicacaoAPILogin.IUsuarioAPILogin;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import java.util.Collection;
 import java.util.Map;
 
-public class UsuarioOAuth2 implements OAuth2User {
+public class UsuarioGoogle implements IUsuarioAPILogin, OAuth2User {
 
-    private  OAuth2User oauth2User;
+    private OAuth2User oauth2User;
 
-    public UsuarioOAuth2(OAuth2User oauth2User) {
+    public UsuarioGoogle(OAuth2User oauth2User) {
         super();
         this.oauth2User = oauth2User;
-        System.out.println("name: " + getName());
-        System.out.println("email: " + getEmail());
+    }
+
+    @Override
+    public String getNome() {
+        return oauth2User.getAttribute("name");
+    }
+    @Override
+    public String getEmail() {
+        return oauth2User.getAttribute("email");
     }
 
     @Override
@@ -29,11 +38,6 @@ public class UsuarioOAuth2 implements OAuth2User {
 
     @Override
     public String getName() {
-        return oauth2User.getAttribute("name");
+        return getNome();
     }
-
-    public String getEmail() {
-        return oauth2User.getAttribute("email");
-    }
-
 }
