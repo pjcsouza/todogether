@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TodoGether</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2">
+  <h1> Minhas Listas </h1>
+
+  <a th:href="@{/mostrarFormNovaLista}" class="btn btn-primary btn-sm mb-3"> Criar Lista </a>
+  <table class="table table-striped table-responsive-md">
+    <thead>
+    <tr>
+      <th> Nome da Lista </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="lista : ${listas}">
+      <td th:text="${lista.nome}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

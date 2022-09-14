@@ -1,6 +1,6 @@
 package com.example.todogether.Model.Lista;
 
-import com.example.todogether.Model.Usuario.Usuario;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
