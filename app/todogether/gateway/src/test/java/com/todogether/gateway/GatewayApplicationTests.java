@@ -1,4 +1,4 @@
-package com.todogether.demo;
+package com.todogether.gateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
