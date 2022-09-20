@@ -14,32 +14,16 @@ public class TelaCadastroControle {
     @Autowired
     private Fachada fachada;
 
-    private Boolean validarEmail(String email) {
-        String emailPattern = "^(.+)@(\\S+)$";
-        return Pattern.compile(emailPattern)
-                .matcher(email)
-                .matches();
+    @GetMapping("/cadastrarUsuario")
+    public String cadastrarUsuario() {
+        Boolean sucesso = fachada.cadastrarUsuario();
+        return sucesso ? "redirect:/requestLogin" : "index";
     }
 
-    @GetMapping("/mostrarTelaCadastro")
-    public String mostrarTelaCadastro() {
-        return "tela_cadastro";
-    }
-
-    @RequestMapping("/cadastrarUsuario")
-    public String cadastrarUsuario(@RequestParam String email) {
-        if(!validarEmail(email)) {
-            return "tela_cadastro"; // mostrar erro
-        }
-
-        Boolean sucesso = fachada.cadastrarUsuario(email);
-        return sucesso ? "redirect:/mostrarTelaLogin" : "tela_cadastro";
-    }
-
-    @GetMapping("/mostrarListaUsuarios")
-    public String mostrarListaUsuarios(Model model) {
-        System.out.println("Oi");
-        model.addAttribute("listaUsuarios", fachada.consultarTodosUsuarios());
-        return "lista_usuarios";
-    }
+//    @GetMapping("/mostrarListaUsuarios")
+//    public String mostrarListaUsuarios(Model model) {
+//        System.out.println("Oi");
+//        model.addAttribute("listaUsuarios", fachada.consultarTodosUsuarios());
+//        return "lista_usuarios";
+//    }
 }

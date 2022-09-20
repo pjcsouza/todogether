@@ -2,7 +2,8 @@ package com.example.todogether.Model.Controladores;
 
 import com.example.todogether.Model.Usuario.CadastroUsuario;
 import com.example.todogether.Model.Usuario.Usuario;
-import com.example.todogether.SubsistemaComunicacaoAPILoginGoogle.ISubsistemaComunicacaoAPILogin;
+import com.example.todogether.SubsistemaComunicacaoAPILogin.ISubsistemaComunicacaoAPILogin;
+import com.example.todogether.SubsistemaComunicacaoAPILogin.IUsuarioAPILogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,13 +16,14 @@ public class ControladorCadastro {
     @Autowired
     private ISubsistemaComunicacaoAPILogin subsistemaComunicacaoAPILogin;
 
-    public Boolean cadastrarUsuario(String email) {
-        if(cadastroUsuario.consultarUsuarioPorEmail(email) != null) return false;
+    public Boolean cadastrarUsuario() {
+        IUsuarioAPILogin usuarioAPILogin = subsistemaComunicacaoAPILogin.cadastrarUsuario();
 
-        String nome = subsistemaComunicacaoAPILogin.cadastrarUsuario(email);
-        if(nome == null || nome.isEmpty()) { return false; }
-        cadastroUsuario.adicionarUsuario(nome, email);
-
+        try {
+            cadastroUsuario.consultarUsuarioPorEmail(usuarioAPILogin.getEmail());
+        } catch (Exception e) {
+            cadastroUsuario.adicionarUsuario(usuarioAPILogin.getNome(), usuarioAPILogin.getEmail());
+        }
         return true;
     }
 
