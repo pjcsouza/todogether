@@ -19,6 +19,7 @@ public class TelaCadastroControle {
         Boolean sucesso = fachada.cadastrarUsuario();
         return sucesso ? "redirect:/requestLogin" : "index";
     }
+    
 
 //    @GetMapping("/mostrarListaUsuarios")
 //    public String mostrarListaUsuarios(Model model) {

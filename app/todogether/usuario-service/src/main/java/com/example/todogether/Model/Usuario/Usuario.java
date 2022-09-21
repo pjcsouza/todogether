@@ -1,20 +1,30 @@
 package com.example.todogether.Model.Usuario;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+//import lombok.AllArgsConstructor;
+//import lombok.Builder;
+//import lombok.Data;
+//import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "usuarios")
+//@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Builder
+//@Table(name = "usuarios")
 public class Usuario {
 
     public static Usuario atual;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private long id;
-    @Column(name = "nome")
+//    @Column(name = "nome")
     private String nome;
 
-    @Column(name = "email", unique = true)
+//    @Column(name = "email", unique = true)
     private String email;
 
     public long getId() {

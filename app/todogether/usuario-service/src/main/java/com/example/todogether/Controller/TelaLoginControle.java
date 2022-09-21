@@ -20,4 +20,9 @@ public class TelaLoginControle {
         if(!sucesso) return "tela_login";
         return  "redirect:/mostrarListas";
     }
+    @GetMapping("/usuario")
+    @ResponseBody
+    public Long getUsuario() {
+        return Usuario.atual.getId();
+    }
 }

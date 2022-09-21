@@ -4,18 +4,18 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "listas")
+//@Table(name = "listas")
 public class Lista {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "nome")
+    //@Column(name = "nome")
     private String nome;
 
     @ElementCollection
-    @Column(name = "idUsuarios")
+    //@Column(name = "idUsuarios")
     private List<Long> idUsuarios;
 
     public long getId() {

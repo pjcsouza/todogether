@@ -20,6 +20,11 @@ public class TodogetherApplication {
     public static void main(String[] args) {
         SpringApplication.run(TodogetherApplication.class, args);
     }
+    @Bean
+    @LoadBalanced
+    public WebClient.Builder getWebClient() {
+        return WebClient.builder();
+    }
 
     @Bean
     public Customizer<ReactiveResilience4JCircuitBreakerFactory> defaultCustomizer() {
