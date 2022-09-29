@@ -16,6 +16,7 @@ public class ControladorLogin {
     private ISubsistemaComunicacaoAPILogin subsistemaComunicacaoAPILogin;
 
     public Boolean requisitarLogin() {
+    	
         String email = subsistemaComunicacaoAPILogin.consultarEmail();
         if(email == null) return null;
 

@@ -21,13 +21,10 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="usuario : ${listaUsuarios}">
-      <td th:text="${usuario.nome}"></td>
-      <td th:text="${usuario.email}"></td>
-      <td>
-        <a th:href="@{/mostrarFormAtualizar/{id}(id=${usuario.id})}" class="btn btn-primary"> Atualizar </a>
-        <a th:href="@{/deletarUsuario/{id}(id=${usuario.id})}" class="btn btn-danger"> Deletar </a>
-      </td>
+    <tr>
+      <td th:text="${usuario}"></td>
+      
+      
     </tr>
     </tbody>
   </table>

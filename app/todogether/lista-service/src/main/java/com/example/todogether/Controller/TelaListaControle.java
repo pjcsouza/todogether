@@ -23,7 +23,9 @@ public class TelaListaControle {
 
     @GetMapping("/mostrarListas")
     public String mostrarListas(Model model) {
+        
     	Long usuarioID = accountService.getUsuario();
+        model.addAttribute("user", usuarioID);
         List<Lista> listas = fachada.consultarTodasListas(usuarioID);
         model.addAttribute("listas", listas);
         return "tela_listas";

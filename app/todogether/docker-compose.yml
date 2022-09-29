@@ -1,0 +1,23 @@
+
+version: "3"
+services:
+    lista:
+        build:
+            context: ./lista-service/
+        depends_on:
+            - discovery
+    usuario:
+        build:
+            context: ./usuario-service/
+        depends_on:
+             - discovery
+    discovery:
+        build:
+            context: ./discovery-server/
+        ports:
+            - "8761:8761"
+    gateway:
+        build:
+            context: ./gateway
+        ports:
+             - "8084:8084"

@@ -20,8 +20,10 @@
     </tr>
     </thead>
     <tbody>
+      <tr><td th:text="${user}"></td></tr>
     <tr th:each="lista : ${listas}">
       <td th:text="${lista.nome}"></td>
+      
     </tr>
     </tbody>
   </table>

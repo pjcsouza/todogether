@@ -5,6 +5,9 @@ import com.example.todogether.Model.Usuario.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import java.util.Collections;
+import java.util.Map;
+
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -18,11 +21,18 @@ public class TelaLoginControle {
         Boolean sucesso = fachada.requestLogin();
 
         if(!sucesso) return "tela_login";
-        return  "redirect:/mostrarListas";
+        return  "logado";
     }
     @GetMapping("/usuario")
     @ResponseBody
-    public Long getUsuario() {
-        return Usuario.atual.getId();
+    public Map<String, Long> getUsuario() {
+
+        return Collections.singletonMap("usuario", Usuario.atual.getId());
+        
+        
     }
+
+    
+
+    
 }

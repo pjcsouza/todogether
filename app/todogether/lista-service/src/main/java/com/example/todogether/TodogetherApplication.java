@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @SpringBootApplication
-@EnableEurekaClient
+
 public class TodogetherApplication {
 
     public static void main(String[] args) {
@@ -24,28 +24,6 @@ public class TodogetherApplication {
     @LoadBalanced
     public WebClient.Builder getWebClient() {
         return WebClient.builder();
-    }
-
-    @Bean
-    public Customizer<ReactiveResilience4JCircuitBreakerFactory> defaultCustomizer() {
-        return factory -> {
-            factory.configureDefault(
-                    id ->
-                            new Resilience4JConfigBuilder(id)
-                                    .timeLimiterConfig(
-                                            TimeLimiterConfig.custom()
-                                                    .timeoutDuration(Duration.ofSeconds(3))
-                                                    .build())
-                                    .circuitBreakerConfig(
-                                            CircuitBreakerConfig.custom()
-                                                    .failureRateThreshold(25)
-                                                    .slidingWindowSize(5)
-                                                    .slowCallRateThreshold(5)
-                                                    .slowCallRateThreshold(2)
-                                                    .minimumNumberOfCalls(5)
-                                                    .enableAutomaticTransitionFromOpenToHalfOpen()
-                                                    .build())
-                                    .build());
-        };
+    
     }
 }
